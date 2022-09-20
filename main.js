@@ -3,6 +3,7 @@ let bekezdes = document.querySelector("#bekezdes");
 let egyik = document.querySelector("#egyik");
 let masik = document.querySelector("#masik");
 let eredmeny = document.querySelector("#eredmeny");
+let kivonas = document.querySelector("#kivonas");
 
 function katt() {
   console.log("Katt!");
@@ -16,13 +17,18 @@ function folotte() {
   console.log("Fölötte!");
 }
 
-function update_eredmeny() {
-  eredmeny.value = parseInt(egyik.value) + parseInt(masik.value);
+function update_szamologep() {
+  egyik_szam = parseInt(egyik.value);
+  masik_szam = parseInt(masik.value);
+
+  eredmeny.value = egyik_szam + masik_szam;
+  kivonas.textContent = egyik_szam - masik_szam;
 }
 
 function szamologep_init(){
-  egyik.addEventListener("change", update_eredmeny)
-  masik.addEventListener("change", update_eredmeny)
+  egyik.addEventListener("input", update_szamologep)
+  masik.addEventListener("input", update_szamologep)
+  update_szamologep();
 }
 
 
@@ -36,4 +42,4 @@ function init() {
 
 document.addEventListener("DOMContentLoaded", init);
 
-console.log("js fájl vége!")
+console.log("js fájl vége!");

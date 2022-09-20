@@ -4,6 +4,10 @@ let egyik = document.querySelector("#egyik");
 let masik = document.querySelector("#masik");
 let eredmeny = document.querySelector("#eredmeny");
 let kivonas = document.querySelector("#kivonas");
+let szinezo_cim = document.querySelector("#szinezo-cim");
+let hatterszin = document.querySelector("#hatterszin");
+let szinezo = document.querySelector("#szinezo");
+
 
 function katt() {
   console.log("Katt!");
@@ -31,12 +35,24 @@ function szamologep_init(){
   update_szamologep();
 }
 
+function szinezo_init() {
+  hatterszin.addEventListener("change", update_szinezo);
+  szinezo.style.backgroundColor = hatterszin.value;
+  szinezo_cim.style.color = "white";
+  szinezo_cim.style["mix-blend-mode"] = "difference";
+}
+
+function update_szinezo(){
+  szinezo.style.backgroundColor = this.value;
+}
+
 
 function init() {
-  szamologep_init();
   fogomb.addEventListener("click", katt);
   fogomb.addEventListener("dblclick", duplakatt);
   bekezdes.addEventListener("pointerover", folotte);
+  szamologep_init();
+  szinezo_init();
   console.log("init!");
 }
 

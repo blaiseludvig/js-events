@@ -11,6 +11,15 @@ let szinezo = document.querySelector("#szinezo");
 
 function katt() {
   console.log("Katt!");
+  fogomb.classList.toggle("fontos");
+
+  if (fogomb.classList.contains("fontos")) {
+    fogomb.textContent = "Ez egy fontos gomb";
+  } else {
+    fogomb.textContent = "Ez egy sima gomb";
+
+  }
+
 }
 
 function duplakatt() {
@@ -29,7 +38,7 @@ function update_szamologep() {
   kivonas.textContent = egyik_szam - masik_szam;
 }
 
-function szamologep_init(){
+function szamologep_init() {
   egyik.addEventListener("input", update_szamologep)
   masik.addEventListener("input", update_szamologep)
   update_szamologep();
@@ -42,7 +51,7 @@ function szinezo_init() {
   szinezo_cim.style["mix-blend-mode"] = "difference";
 }
 
-function update_szinezo(){
+function update_szinezo() {
   szinezo.style.backgroundColor = this.value;
 }
 
